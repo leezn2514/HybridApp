@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>달력</title>
+
+    <style media="screen">
+        .outer { text-align: center; }
+
+        .calendar {
+          height: 500px;
+          width: 800px;
+          background-color: pink;
+          display: inline-block;
+          margin-top: 50px;
+        }
+
+        .btn {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+
+          margin-top: 30px;
+        }
+
+        #leftBtn {
+          height: 50px;
+          width: 80px;
+        }
+
+        #rightBtn {
+          height: 50px;
+          width: 80px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="outer">
+      <div class="calendar"><img id="img" style="width: 100%; height: 100%;" src="Image/1.jpg" alt=""></div>
+      <div class="btn">
+        <button id="leftBtn" type="button" name="button" onclick="leftMove()">Left</button>
+        <button id="rightBtn" type="button" name="button" onclick="rightMove()">Right</button>
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    var img_src = document.getElementById('img');
+
+    var img = [];
+    for (var i = 1; i < 6; i++) { img[i] = "Image/" + i + ".jpg"; }
+
+    var imgNum = 1;
+
+    function leftMove() {
+      imgNum--;
+      if(imgNum == 0) imgNum = 1;
+      img_src.src = img[imgNum];
+    }
+    function rightMove() {
+      imgNum++;
+      if(imgNum == 6) imgNum = 5;
+      img_src.src = img[imgNum];
+    }
+
+  </script>
+</html>
