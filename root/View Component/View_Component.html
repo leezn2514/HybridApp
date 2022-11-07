@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component 실습</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <!-- 중괄호 두 개는 HTML에서의 변수 생성법, Mustache -->
+    <div id="app">{{ message }}</div>
+    <script>
+      const {createApp} = Vue; // Vue는 가상 DOM으로 기존 DOM에 있는 div 요소 속에 Vue라는 가상의 DOM을 대체한 것이다.
+
+      createApp({
+        data() {
+          return {
+            message: "hello~world"
+          }
+        }
+      }).mount("#app") // mount라는 값에 getElementById()가 들어가 있는 것
+    </script>
+  </body>
+</html>
