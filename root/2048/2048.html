@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <center>
+    <div id="background">
+      <div class='bg_block' v-for='index in bg_block_count'>{{index}}</div>
+      <div class='fillBox'></div>
+      <div class='fillBox'></div>
+    </div>
+    </center>
+  </body>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="GameManager.js"></script>
+  <link rel="stylesheet" href="Style.css">
+</html>

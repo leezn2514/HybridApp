@@ -1,0 +1,28 @@
+#background {
+  width: 600px;
+  height: 600px;
+  background-color: green;
+  display: grid;
+  /* 보통 grid의 단위는 분수(fraction)를 자주 사용함 */
+  /* 하단의 비율은 1:1:1:1 이라는 뜻 */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  padding: 15px;
+  position:relative;
+}
+
+.bg_block {
+  border: 5px solid black;
+  border-radius: 5px 5px 5px 5px;
+  background-color: orange;
+}
+
+.fillBox {
+  width: 120px;
+  height: 120px;
+  background-color: red;
+  position: absolute;
+
+  left: 24px;
+}
