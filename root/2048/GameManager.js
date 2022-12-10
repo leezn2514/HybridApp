@@ -27,7 +27,7 @@ class GameManager {
     this.blockArr_num = -1;
   }
 
-  ObjectPool() {      
+  ObjectPool() {
     this.Block[this.blockArr_num] = new Block([24, 178, 332, 486], [24, 178, 332, 486]); // Block 객체 생성
     this.blockArr.push(this.Block[this.blockArr_num]); 
     this.blockArr_num++;
@@ -36,14 +36,16 @@ class GameManager {
   }
 }
 
-
 class Block {
-  constructor(posX, posY) {
+  constructor(posX, posY, result) {
     this.posX = posX;
-    this.posY = posY; 
+    this.posY = posY;
+    this.result = result;
+    this.randomResult = [2, 4];
 
     this.newBlock = document.createElement('div');
     this.newBlock.setAttribute('class', 'fillBox');
+    this.newBlock.innerText = this.randomResult[Math.floor(Math.random() * 2)] + '';
     addBlockPlace.appendChild(this.newBlock);
 
     var random_top_num = Math.floor(Math.random() * 4);
@@ -77,43 +79,34 @@ class Block {
         //   if(blocks[i].style.top == 486 + "px") empty_arr[b] = 1;
         //}
   }
-
-var a = new GameManager;
-
-function LeftMove() {
-  var is_stop = new Array();
-  is_stop = false;
-
-  for(i = 0; i < blocks.length; i++) {
-    var px_delete = blocks[i].style.left.replace('px', '');
-    var move_num = parseInt(px_delete) - 10;
-    blocks[i].style.left = move_num + "px";
-
-    if(move_num <= 0) is_stop[i] = true;
+  
+  function LeftMove() {
+    for(i = 0; i < blocks.length; i++) {
+      var px_delete = blocks[i].style.left.replace('px', '');
+      var move_num = parseInt(px_delete) - 10;
+      blocks[i].style.left = move_num + "px";
+    }
   }
-  return is_stop;
-}
 
-// 블록 이동
-window.addEventListener("keydown", Blockmove, false)
-function Blockmove(e) {
-	switch(e.keyCode) {
-		case 37:
-      var anim = setInterval(LeftMove, 20);
-			break;
-    case 38:
-        // up key pressed
-      break;
-    case 39:
-          // right key pressed
-      break;
-    case 40:
-            // down key pressed
-      break;	
-  }	
+  var a = new GameManager;
   a.ObjectPool(); 
-  console.log(LeftMove())
-  //if(LeftMove() == true) console.log("sdasd")
+  a.ObjectPool();
+
+  // 블록 이동
+  window.addEventListener("keydown", Blockmove, false)
+  function Blockmove(e) {
+    switch(e.keyCode) {
+      case 37:
+        setInterval(LeftMove, 20);
+        break;
+      case 38:
+        break;
+        case 39:
+        break;
+      case 40:
+        break;	
+    }	
+  a.ObjectPool(); 
 }
 
 function Keylog(e) {
